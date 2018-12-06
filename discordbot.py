@@ -14,5 +14,19 @@ async def on_ready():
     print (bot.user.name)
     print (bot.user.id)
 
+@bot.event
+async def on_message(message):
+    if message.content.startswith('!test'):
+        counter = 0
+        tmp = await bot.send_message(message.channel, 'Calculating messages...')
+        async for log in bot.logs_from(message.channel, limit=100):
+            if log.author == message.author:
+                counter += 1
+
+        await bot.edit_message(tmp, 'You have {} messages.'.format(counter))
+    elif message.content.startswith('!sleep'):
+        await asyncio.sleep(5)
+        await bot.send_message(message.channel, 'Done sleeping')
+
 #Make the bot run - insert discord authentication token
 #bot.run("token")

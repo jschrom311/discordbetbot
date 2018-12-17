@@ -30,6 +30,11 @@ async def on_message(message):
 
 
 #creating betting class
+class Bet:
+  def __init__(self, betting, user, amount):
+    self.betting = True
+    self.user = user.name
+    self.amount = int
 
 #Make the bot run - insert discord authentication token
 #bot.run("token")

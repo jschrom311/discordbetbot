@@ -28,5 +28,8 @@ async def on_message(message):
         await asyncio.sleep(5)
         await bot.send_message(message.channel, 'Done sleeping')
 
+
+#creating betting class
+
 #Make the bot run - insert discord authentication token
 #bot.run("token")
